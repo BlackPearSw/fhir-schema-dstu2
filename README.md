@@ -2,6 +2,11 @@
 
 JSON schema v4 schemas for FHIR DSTU2 resources, bundled with tv4 validator.
 
+For Resources:
+- Patient
+- Practitioner
+- Organization
+
 ## Prerequisites
 
 Node.JS v0.12.*
@@ -55,8 +60,7 @@ Tests can be run using:
 
 ## Notices
 
-Copyright (c) 2014-2015 Black Pear Software
-Copyright (c) 2015 Endeavour Health Charitable Trust
+Copyright (c) 2014-2015 Black Pear Software, (c) 2015 Endeavour Health Charitable Trust
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 
