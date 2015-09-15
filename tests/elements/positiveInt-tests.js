@@ -1,14 +1,14 @@
-var unsignedInt = require('../../lib/index').elements.unsignedInt;
+var positiveInt = require('../../lib/index').elements.positiveInt;
 var formats = require('../../lib').formats;
 var Validator = require('../../lib').Validator;
 
 var expect = require('chai').expect;
 
-describe('elements.unsignedInt', function () {
-    var schema =  unsignedInt();
+describe('elements.positiveInt', function () {
+    var schema =  positiveInt();
     var validator = new Validator(schema, formats);
 
-    it('validates unsignedInt (1)', function () {
+    it('validates positiveInt (1)', function () {
         var data = 1;
 
         var result = validator.validate(data, schema);
@@ -16,7 +16,7 @@ describe('elements.unsignedInt', function () {
         expect(result.valid).to.be.true;
     });
 
-    it('validates unsignedInt (32768)', function () {
+    it('validates positiveInt (32768)', function () {
         var data = 32768;
 
         var result = validator.validate(data, schema);
@@ -24,15 +24,15 @@ describe('elements.unsignedInt', function () {
         expect(result.valid).to.be.true;
     });
 
-    it('validates unsignedInt (0)', function () {
+    it('rejects an invalid positiveInt (0)', function () {
         var data = 0;
 
         var result = validator.validate(data, schema);
 
-        expect(result.valid).to.be.true;
+        expect(result.valid).to.be.false;
     });
 
-    it('rejects an invalid unsignedInt (-1)', function () {
+    it('rejects an invalid positiveInt (-1)', function () {
         var data = -1;
 
         var result = validator.validate(data, schema);
@@ -40,7 +40,7 @@ describe('elements.unsignedInt', function () {
         expect(result.valid).to.be.false;
     });
 
-    it('rejects an invalid unsignedInt (fubar)', function () {
+    it('rejects an invalid positiveInt (fubar)', function () {
         var data = 'fubar';
 
         var result = validator.validate(data, schema);

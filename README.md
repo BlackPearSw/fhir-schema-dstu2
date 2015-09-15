@@ -7,6 +7,9 @@ For Resources:
 - Patient
 - Practitioner
 - Organization
+- Condition
+- MedicationOrder
+- Immunization
 
 ## Prerequisites
 

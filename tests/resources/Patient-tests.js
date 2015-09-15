@@ -26,7 +26,9 @@ describe('resources.Patient', function () {
             text: {
                 status: 'generated',
                 div: '<p>John J. Doe (2010-04-01)</p>'
-            }
+            },
+            deceasedBoolean: false,
+            multipleBirthBoolean: true
         };
     });
 
@@ -42,6 +44,22 @@ describe('resources.Patient', function () {
 
     it('rejects a Patient with invalid id (confirms inheritance from Resource)', function () {
         data.id = '$%^&';
+
+        var result = validator.validate(data);
+
+        expect(result.valid).to.be.false;
+    });
+
+    it('rejects a Patient with more than one deceased[x]', function () {
+        data.deceasedDateTime = '2014-04-20';
+
+        var result = validator.validate(data);
+
+        expect(result.valid).to.be.false;
+    });
+
+    it('rejects a Patient with more than one multipleBirth[x]', function () {
+        data.multipleBirthInteger = 2;
 
         var result = validator.validate(data);
 
