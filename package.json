@@ -1,6 +1,6 @@
 {
   "name": "fhir-schema-dstu2",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "JSON schema v4 schemas for FHIR DSTU2 resources",
   "main": "./lib/index.js",
   "license": "MIT",
