@@ -1,13 +1,12 @@
-var DomainResource = require('../../lib').resources.DomainResource;
-var formats = require('../../lib').formats;
 var Validator = require('../../lib').Validator;
+var fhir = require('../../lib');
 
 var expect = require('chai').expect;
 
 describe('resources.DomainResource', function () {
 
-    var schema = DomainResource({resourceType:'Foo'});
-    var validator = new Validator(schema, formats);
+    var schema = fhir.resources.DomainResource({resourceType:'Foo'});
+    var validator = new Validator(fhir.schema, fhir.formats);
 
     var data;
 
@@ -22,13 +21,25 @@ describe('resources.DomainResource', function () {
                 ]
             },
             implicitRules: 'http://foo.bar/rules',
-            language: 'en-GB'
+            language: 'en-GB',
+            contained: [
+                {
+                    resourceType: 'Bar',
+                    foo: 'fubar',
+                    description: 'The quick brown fox etc'
+                }
+            ],
+            extension: [
+                {
+                    url: 'http://foo.bar/x'
+                }
+            ]
 
         };
     });
 
     it('validates a DomainResource', function () {
-        var result = validator.validate(data);
+        var result = validator.validate(data, schema);
 
         if (!result.valid){
             console.log(result);
@@ -40,24 +51,10 @@ describe('resources.DomainResource', function () {
     it('rejects a DomainResource with invalid id (confirms inheritance from Resource)', function () {
         data.id = '$%^&';
 
-        var result = validator.validate(data);
+        var result = validator.validate(data, schema);
 
         expect(result.valid).to.be.false;
     });
 
-    it('rejects a DomainResource without resourceType', function () {
-        delete data.resourceType;
 
-        var result = validator.validate(data);
-
-        expect(result.valid).to.be.false;
-    });
-
-    it('rejects a DomainResource with incorrect resourceType ', function () {
-        data.resourceType = 'Bar';
-
-        var result = validator.validate(data);
-
-        expect(result.valid).to.be.false;
-    });
 });

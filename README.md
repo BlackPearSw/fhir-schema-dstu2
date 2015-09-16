@@ -30,9 +30,9 @@ Tests can be run using:
 
 ## Use
 
-    var FHIR_DSTU2 = require('fhir-schema-dstu2');
+    var fhir = require('fhir-schema-dstu2');
 
-    var validator = new FHIR_DSTU2.Validator(FHIR_DSTU2.resources.Patient(), FHIR_DSTU2.formats);
+    var validator = new fhir.Validator(fhir.schema, fhir.formats);
 
     var patient = {
         id: '123456789',
@@ -59,7 +59,7 @@ Tests can be run using:
         birthDate: '1980-04-12'
     };
 
-    var result = validator.validate(patient);
+    var result = validator.validate(patient, fhir.schema.Patient);
 
     console.log(result);
 

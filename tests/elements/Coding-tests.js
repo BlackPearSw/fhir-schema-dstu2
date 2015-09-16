@@ -1,8 +1,7 @@
 var Coding = require('../../lib/index').elements.Coding;
 var formats = require('../../lib').formats;
+var definitions = require('../../lib').schema;
 var Validator = require('../../lib').Validator;
-
-var tv4 = require('tv4');
 
 var expect = require('chai').expect;
 
@@ -10,31 +9,34 @@ describe('elements.Coding', function () {
 
     var schema = Coding();
     var data;
-    var validator;
+    var validator = new Validator(definitions, formats);
 
-    beforeEach(function(){
-        data =  {
+    beforeEach(function () {
+        data = {
             system: 'http://foo.bar',
             version: '1',
             code: 'f12345',
             display: 'foo',
             primary: false
         };
-        validator = new Validator(schema, formats);
     });
 
     it('validates a Coding', function () {
-        var result = tv4.validate(data, schema, true);
+        var result = validator.validate(data, schema);
 
-        expect(result).to.be.true;
+        if (!result.valid){
+            console.log(result);
+        }
+
+        expect(result.valid).to.be.true;
     });
 
     it('rejects an invalid Coding (primary not boolean)', function () {
         data.primary = 'fail';
 
-        var result = tv4.validate(data, schema);
+        var result = validator.validate(data, schema);
 
-        expect(result).to.be.false;
+        expect(result.valid).to.be.false;
     });
 
     it('validates a Coding bound to a system', function () {
@@ -46,9 +48,9 @@ describe('elements.Coding', function () {
             code: 'fubar'
         };
 
-        var result = tv4.validate(data, schema);
+        var result = validator.validate(data, schema);
 
-        expect(result).to.be.true;
+        expect(result.valid).to.be.true;
     });
 
     it('rejects a Coding from invalid system', function () {
@@ -60,9 +62,9 @@ describe('elements.Coding', function () {
             code: 'fubar'
         };
 
-        var result = tv4.validate(data, schema);
+        var result = validator.validate(data, schema);
 
-        expect(result).to.be.false;
+        expect(result.valid).to.be.false;
     });
 
     it('validates a Coding bound to a ValueSet', function () {
@@ -74,9 +76,9 @@ describe('elements.Coding', function () {
             code: 'foo'
         };
 
-        var result = tv4.validate(data, schema);
+        var result = validator.validate(data, schema);
 
-        expect(result).to.be.true;
+        expect(result.valid).to.be.true;
     });
 
     it('rejects a Coding from invalid ValueSet', function () {
@@ -88,9 +90,9 @@ describe('elements.Coding', function () {
             code: 'fubar'
         };
 
-        var result = tv4.validate(data, schema);
+        var result = validator.validate(data, schema);
 
-        expect(result).to.be.false;
+        expect(result.valid).to.be.false;
     });
 })
 ;

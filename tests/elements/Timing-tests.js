@@ -41,7 +41,7 @@ describe('elements.Timing', function () {
             value: 1.23
         };
 
-        var result = validator.validate(data);
+        var result = validator.validate(data, schema);
 
         expect(result.valid).to.be.false;
     });
