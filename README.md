@@ -10,6 +10,7 @@ For Resources:
 - Condition
 - MedicationOrder
 - Immunization
+- AllergyIntolerance
 
 ## Prerequisites
 
