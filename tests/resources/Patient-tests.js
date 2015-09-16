@@ -1,16 +1,15 @@
-var Patient = require('../../lib').resources.Patient;
-var formats = require('../../lib').formats;
 var Validator = require('../../lib').Validator;
+var fhir = require('../../lib');
 
 var expect = require('chai').expect;
 
 describe('resources.Patient', function () {
 
-    var schema = Patient();
-    var validator = new Validator(schema, formats);
+    var schema = fhir.schema.Patient;
+    var validator = new Validator(fhir.schema, fhir.formats);
     var data;
 
-    beforeEach(function(){
+    beforeEach(function () {
         data = {
             resourceType: 'Patient',
             id: '123456',
@@ -28,14 +27,27 @@ describe('resources.Patient', function () {
                 div: '<p>John J. Doe (2010-04-01)</p>'
             },
             deceasedBoolean: false,
-            multipleBirthBoolean: true
+            multipleBirthBoolean: true,
+            address: [
+                {
+                    text: '59 Lincombe Drive, Leeds, West Yorkshire, LS8 1PS',
+                    line: [
+                        '59 Lincombe Drive',
+                        'Leeds',
+                        'West Yorkshire'
+                    ],
+                    city: 'Leeds',
+                    state: 'West Yorkshire',
+                    postalCode: 'LS8 1PS'
+                }
+            ]
         };
     });
 
     it('validates a Patient', function () {
-        var result = validator.validate(data);
+        var result = validator.validate(data, schema);
 
-        if (!result.valid){
+        if (!result.valid) {
             console.log(result);
         }
 
@@ -45,7 +57,7 @@ describe('resources.Patient', function () {
     it('rejects a Patient with invalid id (confirms inheritance from Resource)', function () {
         data.id = '$%^&';
 
-        var result = validator.validate(data);
+        var result = validator.validate(data, schema);
 
         expect(result.valid).to.be.false;
     });
@@ -53,7 +65,7 @@ describe('resources.Patient', function () {
     it('rejects a Patient with more than one deceased[x]', function () {
         data.deceasedDateTime = '2014-04-20';
 
-        var result = validator.validate(data);
+        var result = validator.validate(data, schema);
 
         expect(result.valid).to.be.false;
     });
@@ -61,7 +73,7 @@ describe('resources.Patient', function () {
     it('rejects a Patient with more than one multipleBirth[x]', function () {
         data.multipleBirthInteger = 2;
 
-        var result = validator.validate(data);
+        var result = validator.validate(data, schema);
 
         expect(result.valid).to.be.false;
     });

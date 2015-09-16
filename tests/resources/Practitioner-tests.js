@@ -1,13 +1,12 @@
-var Practitioner = require('../../lib').resources.Practitioner;
-var formats = require('../../lib').formats;
 var Validator = require('../../lib').Validator;
+var fhir = require('../../lib');
 
 var expect = require('chai').expect;
 
 describe('resources.Practitioner', function () {
 
-    var schema = Practitioner();
-    var validator = new Validator(schema, formats);
+    var schema = fhir.schema.Practitioner;
+    var validator = new Validator(fhir.schema, fhir.formats);
     var data;
 
     beforeEach(function () {
@@ -94,7 +93,7 @@ describe('resources.Practitioner', function () {
     });
 
     it('validates a Practitioner', function () {
-        var result = validator.validate(data);
+        var result = validator.validate(data, schema);
 
         if (!result.valid) {
             console.log(result);
@@ -106,7 +105,7 @@ describe('resources.Practitioner', function () {
     it('rejects a Practitioner with invalid id (confirms inheritance from Resource)', function () {
         data.id = '$%^&';
 
-        var result = validator.validate(data);
+        var result = validator.validate(data, schema);
 
         expect(result.valid).to.be.false;
     });

@@ -1,13 +1,12 @@
-var MedicationOrder = require('../../lib').resources.MedicationOrder;
-var formats = require('../../lib').formats;
 var Validator = require('../../lib').Validator;
+var fhir = require('../../lib');
 
 var expect = require('chai').expect;
 
 describe('resources.MedicationOrder', function () {
 
-    var schema = MedicationOrder();
-    var validator = new Validator(schema, formats);
+    var schema = fhir.schema.MedicationOrder;
+    var validator = new Validator(fhir.schema, fhir.formats);
     var data;
 
     beforeEach(function () {
@@ -108,7 +107,7 @@ describe('resources.MedicationOrder', function () {
     });
 
     it('validates a MedicationOrder', function () {
-        var result = validator.validate(data);
+        var result = validator.validate(data, schema);
 
         if (!result.valid) {
             console.log(result);
@@ -120,7 +119,7 @@ describe('resources.MedicationOrder', function () {
     it('rejects a MedicationOrder with invalid id (confirms inheritance from Resource)', function () {
         data.id = '$%^&';
 
-        var result = validator.validate(data);
+        var result = validator.validate(data, schema);
 
         expect(result.valid).to.be.false;
     });
@@ -130,7 +129,7 @@ describe('resources.MedicationOrder', function () {
             text: 'For horrible condition'
         };
 
-        var result = validator.validate(data);
+        var result = validator.validate(data, schema);
 
         expect(result.valid).to.be.false;
     });
@@ -140,7 +139,7 @@ describe('resources.MedicationOrder', function () {
             text: 'For horrible condition'
         };
 
-        var result = validator.validate(data);
+        var result = validator.validate(data, schema);
 
         expect(result.valid).to.be.false;
     });
@@ -150,7 +149,7 @@ describe('resources.MedicationOrder', function () {
             display: 'arm'
         };
 
-        var result = validator.validate(data);
+        var result = validator.validate(data, schema);
 
         expect(result.valid).to.be.false;
     });
@@ -158,7 +157,7 @@ describe('resources.MedicationOrder', function () {
     it('rejects a MedicationOrder with more than one dosageInstruction.dose[x]', function () {
         data.dosageInstruction[0].doseRange = { };
 
-        var result = validator.validate(data);
+        var result = validator.validate(data, schema);
 
         expect(result.valid).to.be.false;
     });
@@ -166,7 +165,7 @@ describe('resources.MedicationOrder', function () {
     it('rejects a MedicationOrder with more than one dosageInstruction.rate[x]', function () {
         data.dosageInstruction[0].rateRange = { };
 
-        var result = validator.validate(data);
+        var result = validator.validate(data, schema);
 
         expect(result.valid).to.be.false;
     });
@@ -176,7 +175,7 @@ describe('resources.MedicationOrder', function () {
             display: 'Aspirin 250mg'
         };
 
-        var result = validator.validate(data);
+        var result = validator.validate(data, schema);
 
         expect(result.valid).to.be.false;
     });
@@ -184,7 +183,7 @@ describe('resources.MedicationOrder', function () {
     it('rejects a MedicationOrder when substitution.type missing', function () {
         delete data.substitution.type;
 
-        var result = validator.validate(data);
+        var result = validator.validate(data, schema);
 
         expect(result.valid).to.be.false;
     });

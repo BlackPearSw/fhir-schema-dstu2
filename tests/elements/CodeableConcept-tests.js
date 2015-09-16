@@ -24,7 +24,7 @@ describe('elements.CodeableConcept', function () {
             }]
         };
 
-        var result = validator.validate(data);
+        var result = validator.validate(data, schema);
 
         expect(result.valid).to.be.true;
     });
@@ -37,7 +37,7 @@ describe('elements.CodeableConcept', function () {
             }
         };
 
-        var result = validator.validate(data);
+        var result = validator.validate(data, schema);
 
         expect(result.valid).to.be.false;
     });
@@ -60,7 +60,7 @@ describe('elements.CodeableConcept', function () {
                 }]
             };
 
-            var result = validator.validate(data);
+            var result = validator.validate(data, schema);
 
             expect(result.valid).to.be.true;
         });
@@ -73,7 +73,7 @@ describe('elements.CodeableConcept', function () {
                 }]
             };
 
-            var result = validator.validate(data);
+            var result = validator.validate(data, schema);
 
             expect(result.valid).to.be.false;
         });
@@ -81,7 +81,7 @@ describe('elements.CodeableConcept', function () {
         it('validates if bound to a system but no coding', function () {
             var data = {};
 
-            var result = validator.validate(data);
+            var result = validator.validate(data, schema);
 
             expect(result.valid).to.be.true;
         });
@@ -91,7 +91,7 @@ describe('elements.CodeableConcept', function () {
                 coding: []
             };
 
-            var result = validator.validate(data);
+            var result = validator.validate(data, schema);
 
             expect(result.valid).to.be.true;
         });
@@ -110,7 +110,7 @@ describe('elements.CodeableConcept', function () {
                 ]
             };
 
-            var result = validator.validate(data);
+            var result = validator.validate(data, schema);
 
             expect(result.valid).to.be.true;
         });
@@ -135,7 +135,7 @@ describe('elements.CodeableConcept', function () {
                 }]
             };
 
-            var result = validator.validate(data);
+            var result = validator.validate(data, schema);
 
             expect(result.valid).to.be.true;
         });
@@ -148,7 +148,7 @@ describe('elements.CodeableConcept', function () {
                 }]
             };
 
-            var result = validator.validate(data);
+            var result = validator.validate(data, schema);
 
             expect(result.valid).to.be.false;
         });
@@ -161,7 +161,7 @@ describe('elements.CodeableConcept', function () {
                 }]
             };
 
-            var result = validator.validate(data);
+            var result = validator.validate(data, schema);
 
             expect(result.valid).to.be.false;
         });
@@ -169,7 +169,7 @@ describe('elements.CodeableConcept', function () {
         it('validates if bound to a system but no coding', function () {
             var data = {};
 
-            var result = validator.validate(data);
+            var result = validator.validate(data, schema);
 
             expect(result.valid).to.be.true;
         });
@@ -179,7 +179,7 @@ describe('elements.CodeableConcept', function () {
                 coding: []
             };
 
-            var result = validator.validate(data);
+            var result = validator.validate(data, schema);
 
             expect(result.valid).to.be.true;
         });
@@ -198,7 +198,7 @@ describe('elements.CodeableConcept', function () {
                 ]
             };
 
-            var result = validator.validate(data);
+            var result = validator.validate(data, schema);
 
             expect(result.valid).to.be.true;
         });
@@ -217,7 +217,7 @@ describe('elements.CodeableConcept', function () {
                 ]
             };
 
-            var result = validator.validate(data);
+            var result = validator.validate(data, schema);
 
             expect(result.valid).to.be.false;
         });
