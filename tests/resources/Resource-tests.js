@@ -6,13 +6,14 @@ var expect = require('chai').expect;
 
 describe('resources.Resource', function () {
 
-    var schema = Resource();
+    var schema = Resource({resourceType: 'Foo'});
     var validator = new Validator(schema, formats);
 
     var data;
 
     beforeEach(function(){
         data = {
+            resourceType: 'Foo',
             id: '123456',
             meta: {
                 versionId: '1',
@@ -34,6 +35,22 @@ describe('resources.Resource', function () {
         }
 
         expect(result.valid).to.be.true;
+    });
+
+    it('rejects a Resource without resourceType', function () {
+        delete data.resourceType;
+
+        var result = validator.validate(data);
+
+        expect(result.valid).to.be.false;
+    });
+
+    it('rejects a Resource with incorrect resourceType ', function () {
+        data.resourceType = 'Bar';
+
+        var result = validator.validate(data);
+
+        expect(result.valid).to.be.false;
     });
 
     it('rejects a Resource with invalid id', function () {

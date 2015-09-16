@@ -22,7 +22,14 @@ describe('resources.DomainResource', function () {
                 ]
             },
             implicitRules: 'http://foo.bar/rules',
-            language: 'en-GB'
+            language: 'en-GB',
+            contained: [
+                {
+                    resourceType: 'Bar',
+                    foo: 'fubar',
+                    description: 'The quick brown fox etc'
+                }
+            ]
 
         };
     });
@@ -45,19 +52,5 @@ describe('resources.DomainResource', function () {
         expect(result.valid).to.be.false;
     });
 
-    it('rejects a DomainResource without resourceType', function () {
-        delete data.resourceType;
 
-        var result = validator.validate(data);
-
-        expect(result.valid).to.be.false;
-    });
-
-    it('rejects a DomainResource with incorrect resourceType ', function () {
-        data.resourceType = 'Bar';
-
-        var result = validator.validate(data);
-
-        expect(result.valid).to.be.false;
-    });
 });
