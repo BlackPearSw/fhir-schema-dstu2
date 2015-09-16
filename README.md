@@ -7,6 +7,10 @@ For Resources:
 - Patient
 - Practitioner
 - Organization
+- Condition
+- MedicationOrder
+- Immunization
+- AllergyIntolerance
 
 ## Prerequisites
 
