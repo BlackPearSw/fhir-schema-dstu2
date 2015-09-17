@@ -139,6 +139,130 @@ describe('elements.Extension', function () {
         expect(result.valid).to.be.true;
     });
 
+    it('validates an Extension with valueAttachment', function () {
+        data.valueAttachment = {};
+
+        var result = validator.validate(data, schema);
+
+        expect(result.valid).to.be.true;
+    });
+
+    it('validates an Extension with valueIdentifier', function () {
+        data.valueIdentifier = {};
+
+        var result = validator.validate(data, schema);
+
+        expect(result.valid).to.be.true;
+    });
+
+    it('validates an Extension with valueQuantity', function () {
+        data.valueQuantity = {};
+
+        var result = validator.validate(data, schema);
+
+        expect(result.valid).to.be.true;
+    });
+
+    it('validates an Extension with valueRange', function () {
+        data.valueRange = {};
+
+        var result = validator.validate(data, schema);
+
+        expect(result.valid).to.be.true;
+    });
+
+    it('validates an Extension with valuePeriod', function () {
+        data.valuePeriod = {
+            start: '2015',
+            end: '2016'
+        };
+
+        var result = validator.validate(data, schema);
+
+        expect(result.valid).to.be.true;
+    });
+
+    it('validates an Extension with valueRatio', function () {
+        data.valueRatio = {
+            numerator : {
+                value: 1
+            },
+            denominator: {
+                value: 2
+            }
+        };
+
+        var result = validator.validate(data, schema);
+
+        expect(result.valid).to.be.true;
+    });
+
+    it('validates an Extension with valueHumanName', function () {
+        data.valueHumanName = {
+            family: ['Smith']
+        };
+
+        var result = validator.validate(data, schema);
+
+        expect(result.valid).to.be.true;
+    });
+
+    it('validates an Extension with valueAddress', function () {
+        data.valueAddress = {
+            city: 'Somewhere'
+        };
+
+        var result = validator.validate(data, schema);
+
+        expect(result.valid).to.be.true;
+    });
+
+    it('validates an Extension with valueContactPoint', function () {
+        data.valueContactPoint = {
+            value: '+44 1234 567890'
+        };
+
+        var result = validator.validate(data, schema);
+
+        expect(result.valid).to.be.true;
+    });
+
+    it('validates an Extension with valueTiming', function () {
+        data.valueTiming = {
+            event: ['2015-04-12']
+        };
+
+        var result = validator.validate(data, schema);
+
+        expect(result.valid).to.be.true;
+    });
+
+    it('validates an Extension with valueSignature', function () {
+        data.valueSignature = {
+            type: {
+                code: 'digital'
+            },
+            when: '2015-04-12T17:34:23:004Z',
+            whoUri: 'http://health.org/dr',
+            contentType: 'application/xml',
+            blob: 'ABCDEF01234567890'
+        };
+
+        var result = validator.validate(data, schema);
+
+        expect(result.valid).to.be.true;
+    });
+
+    it('validates an Extension with valueReference', function () {
+        data.valueReference = {
+            display: '2015-04-12'
+        };
+
+        var result = validator.validate(data, schema);
+
+        expect(result.valid).to.be.true;
+    });
+
     it('validates an Extension with extension', function () {
         data.extension = [{
             url: 'http://health.org/ext/ext'
