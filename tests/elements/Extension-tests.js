@@ -1,4 +1,4 @@
-var Extension = require('../../lib/index').elements.Extension;
+var fhir = require('../../lib/');
 var formats = require('../../lib').formats;
 var Validator = require('../../lib').Validator;
 
@@ -6,7 +6,7 @@ var expect = require('chai').expect;
 
 describe('elements.Extension', function () {
 
-    var schema = Extension();
+    var schema = fhir.schema.Extension;
     var validator = new Validator(schema, formats);
     var data;
 

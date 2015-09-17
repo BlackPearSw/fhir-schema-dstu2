@@ -1,5 +1,3 @@
-var Organization = require('../../lib').resources.Organization;
-var formats = require('../../lib').formats;
 var Validator = require('../../lib').Validator;
 var fhir = require('../../lib');
 

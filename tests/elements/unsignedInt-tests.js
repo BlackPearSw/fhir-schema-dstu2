@@ -1,12 +1,11 @@
-var unsignedInt = require('../../lib/index').elements.unsignedInt;
-var formats = require('../../lib').formats;
+var fhir = require('../../lib');
 var Validator = require('../../lib').Validator;
 
 var expect = require('chai').expect;
 
 describe('elements.unsignedInt', function () {
-    var schema =  unsignedInt();
-    var validator = new Validator(schema, formats);
+    var schema = fhir.schema.unsignedInt;
+    var validator = new Validator(fhir.schema, fhir.formats);
 
     it('validates unsignedInt (1)', function () {
         var data = 1;

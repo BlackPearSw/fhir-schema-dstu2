@@ -62,7 +62,6 @@ Tests can be run using:
     var result = validator.validate(patient, fhir.schema.Patient);
 
     console.log(result);
-
 ## Notices
 
 Copyright (c) 2014-2015 Black Pear Software, (c) 2015 Endeavour Health Charitable Trust

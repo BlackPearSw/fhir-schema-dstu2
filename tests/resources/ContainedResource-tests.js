@@ -5,7 +5,7 @@ var expect = require('chai').expect;
 
 describe('resources.ContainedResource', function () {
 
-    var schema = fhir.resources.ContainedResource({resourceType:'Foo'});
+    var schema = fhir.schema.ContainedResource;
     var validator = new Validator(fhir.schema, fhir.formats);
 
     var data;

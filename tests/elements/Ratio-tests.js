@@ -1,12 +1,12 @@
-var Ratio = require('../../lib/index').elements.Ratio;
+var fhir = require('../../lib');
 var formats = require('../../lib').formats;
 var Validator = require('../../lib').Validator;
 
 var expect = require('chai').expect;
 
 describe('elements.Ratio', function () {
-    var schema = Ratio();
-    var validator = new Validator(schema, formats);
+    var schema = fhir.schema.Ratio;
+    var validator = new Validator(fhir.schema, fhir.formats);
     var data;
 
     beforeEach(function(){

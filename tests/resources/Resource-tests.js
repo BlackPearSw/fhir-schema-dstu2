@@ -5,7 +5,7 @@ var expect = require('chai').expect;
 
 describe('resources.Resource', function () {
 
-    var schema = fhir.resources.Resource({resourceType: 'Foo'});
+    var schema = fhir.schema.Resource;
     var validator = new Validator(fhir.schema, fhir.formats);
 
     var data;
@@ -38,14 +38,6 @@ describe('resources.Resource', function () {
 
     it('rejects a Resource without resourceType', function () {
         delete data.resourceType;
-
-        var result = validator.validate(data, schema);
-
-        expect(result.valid).to.be.false;
-    });
-
-    it('rejects a Resource with incorrect resourceType ', function () {
-        data.resourceType = 'Bar';
 
         var result = validator.validate(data, schema);
 

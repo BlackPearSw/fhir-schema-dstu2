@@ -6,6 +6,7 @@ var expect = require('chai').expect;
 describe('resources.Person', function () {
 
     var schema = fhir.schema.Person;
+
     var validator = new Validator(fhir.schema, fhir.formats);
     var data;
 

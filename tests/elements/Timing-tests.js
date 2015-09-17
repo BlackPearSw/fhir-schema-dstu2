@@ -1,5 +1,4 @@
-var Timing = require('../../lib/index').elements.Timing;
-var formats = require('../../lib').formats;
+var fhir = require('../../lib');
 var Validator = require('../../lib').Validator;
 
 var expect = require('chai').expect;
@@ -7,8 +6,8 @@ var expect = require('chai').expect;
 
 describe('elements.Timing', function () {
 
-    var schema = Timing();
-    var validator = new Validator(schema, formats);
+    var schema = fhir.schema.Timing;
+    var validator = new Validator(fhir.schema, fhir.formats);
     var data;
 
     beforeEach(function(){

@@ -1,4 +1,4 @@
-var choice = require('../../lib').assertions.choice;
+var choice = require('../../lib/utils/assertions').choice;
 
 var tv4 = require('tv4');
 var expect = require('chai').expect;

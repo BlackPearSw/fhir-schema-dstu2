@@ -1,10 +1,10 @@
-var date = require('../../lib/index').elements.date;
+var fhir = require('../../lib');
 
 var tv4 = require('tv4');
 var expect = require('chai').expect;
 
 describe('elements.date', function () {
-    var schema = date();
+    var schema = fhir.schema.date;
 
     it('validates a date', function () {
 

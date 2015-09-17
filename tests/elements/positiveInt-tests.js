@@ -1,12 +1,12 @@
-var positiveInt = require('../../lib/index').elements.positiveInt;
+var fhir = require('../../lib');
 var formats = require('../../lib').formats;
 var Validator = require('../../lib').Validator;
 
 var expect = require('chai').expect;
 
 describe('elements.positiveInt', function () {
-    var schema =  positiveInt();
-    var validator = new Validator(schema, formats);
+    var schema =  fhir.schema.positiveInt;
+    var validator = new Validator(fhir.schema, fhir.formats);
 
     it('validates positiveInt (1)', function () {
         var data = 1;

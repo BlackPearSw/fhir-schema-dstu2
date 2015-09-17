@@ -1,10 +1,9 @@
-var uri = require('../../lib/index').elements.uri;
-
+var fhir = require('../../lib');
 var tv4 = require('tv4');
 var expect = require('chai').expect;
 
 describe('elements.uri', function () {
-    var schema = uri();
+    var schema = fhir.schema.uri;
 
     it('validates a uri', function () {
 

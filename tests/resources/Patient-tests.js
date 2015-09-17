@@ -26,6 +26,7 @@ describe('resources.Patient', function () {
                 status: 'generated',
                 div: '<p>John J. Doe (2010-04-01)</p>'
             },
+            gender: 'male',
             deceasedBoolean: false,
             multipleBirthBoolean: true,
             address: [

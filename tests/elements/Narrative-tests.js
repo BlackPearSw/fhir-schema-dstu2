@@ -1,11 +1,10 @@
-var Narrative = require('../../lib/index').elements.Narrative;
-
+var fhir = require('../../lib');
 var tv4 = require('tv4');
 var expect = require('chai').expect;
 
 describe('elements.Narrative', function () {
 
-    var schema = Narrative();
+    var schema = fhir.schema.Narrative;
     var data;
 
     beforeEach(function(){

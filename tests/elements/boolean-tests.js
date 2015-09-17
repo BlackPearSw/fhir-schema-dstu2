@@ -1,10 +1,10 @@
-var boolean = require('../../lib/index').elements.boolean;
+var fhir = require('../../lib');
 
 var tv4 = require('tv4');
 var expect = require('chai').expect;
 
 describe('elements.boolean', function () {
-    var schema = boolean();
+    var schema = fhir.schema.boolean;
 
     it('validates a boolean (true)', function () {
         var data = true;

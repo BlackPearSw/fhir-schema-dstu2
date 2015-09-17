@@ -5,7 +5,7 @@ var expect = require('chai').expect;
 
 describe('resources.DomainResource', function () {
 
-    var schema = fhir.resources.DomainResource({resourceType:'Foo'});
+    var schema = fhir.schema.DomainResource;
     var validator = new Validator(fhir.schema, fhir.formats);
 
     var data;

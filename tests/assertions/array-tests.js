@@ -1,4 +1,4 @@
-var array = require('../../lib').assertions.array;
+var array = require('../../lib/utils/assertions').array;
 
 var tv4 = require('tv4');
 var expect = require('chai').expect;

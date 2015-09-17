@@ -1,15 +1,12 @@
-var Annotation = require('../../lib/index').elements.Annotation;
-var formats = require('../../lib').formats;
 var Validator = require('../../lib').Validator;
-
-var tv4 = require('tv4');
+var fhir = require('../../lib');
 
 var expect = require('chai').expect;
 
 describe('elements.Annotation', function () {
 
-    var schema = Annotation();
-    var validator = new Validator(schema, formats);
+    var schema = fhir.schema.Annotation;
+    var validator = new Validator(fhir.schema, fhir.formats);
     var data;
 
     beforeEach(function(){

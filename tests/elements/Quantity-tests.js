@@ -1,12 +1,12 @@
-var Quantity = require('../../lib/index').elements.Quantity;
+var fhir = require('../../lib');
 var Validator = require('../../lib').Validator;
 var formats = require('../../lib').formats;
 
 var expect = require('chai').expect;
 
 describe('elements.Quantity', function () {
-    var schema = Quantity();
-    var validator = new Validator(schema, formats);
+    var schema = fhir.schema.Quantity;
+    var validator = new Validator(fhir.schema, fhir.formats);
     var data;
 
     beforeEach(function(){
