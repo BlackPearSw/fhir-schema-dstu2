@@ -11,6 +11,7 @@ For Resources:
 - MedicationOrder
 - Immunization
 - AllergyIntolerance
+- OperationOutcome
 
 ## Prerequisites
 
