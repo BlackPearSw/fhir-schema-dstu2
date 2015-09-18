@@ -5,6 +5,7 @@ var expect = require('chai').expect;
 describe('elements.Annotation', function () {
 
     var schema = fhir.schema.Annotation;
+
     var data;
 
     beforeEach(function(){

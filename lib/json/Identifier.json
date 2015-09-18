@@ -1,0 +1,1 @@
+{"title":"Identifier","allOf":[{"$ref":"Element"}],"properties":{"use":{"allOf":[{"$ref":"code"},{"$ref":"IdentifierUse"}]},"system":{"$ref":"string"},"value":{"$ref":"string"}},"$schema":"http://json-schema.org/draft-04/schema#","id":"http://github.com/BlackPearSw/fhir-schema-dstu2/Identifier"}
