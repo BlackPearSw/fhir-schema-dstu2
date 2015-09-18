@@ -47,8 +47,6 @@ describe('utils.validator', function () {
 
         var result = fhir.validator.validate(data, schema);
 
-        console.log(result);
-
         expect(result.valid).to.be.false;
     });
 });
