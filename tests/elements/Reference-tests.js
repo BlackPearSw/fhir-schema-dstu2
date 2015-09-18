@@ -1,16 +1,10 @@
-var Reference = require('../../lib/index').elements.Reference;
-
+var fhir = require('../../lib');
 var tv4 = require('tv4');
 var expect = require('chai').expect;
 
 describe('elements.Reference', function () {
 
-    var schema = {
-        type: 'object',
-        properties: {
-            value: Reference('Foo')
-        }
-    };
+    var schema = fhir.schema.Reference;
 
     it('validates a Reference', function () {
         var data = {

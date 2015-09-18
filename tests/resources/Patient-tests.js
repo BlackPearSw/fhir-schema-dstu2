@@ -1,4 +1,3 @@
-var Validator = require('../../lib').Validator;
 var fhir = require('../../lib');
 
 var expect = require('chai').expect;
@@ -6,7 +5,6 @@ var expect = require('chai').expect;
 describe('resources.Patient', function () {
 
     var schema = fhir.schema.Patient;
-    var validator = new Validator(fhir.schema, fhir.formats);
     var data;
 
     beforeEach(function () {
@@ -26,6 +24,7 @@ describe('resources.Patient', function () {
                 status: 'generated',
                 div: '<p>John J. Doe (2010-04-01)</p>'
             },
+            gender: 'male',
             deceasedBoolean: false,
             multipleBirthBoolean: true,
             address: [
@@ -45,7 +44,7 @@ describe('resources.Patient', function () {
     });
 
     it('validates a Patient', function () {
-        var result = validator.validate(data, schema);
+        var result = fhir.validator.validate(data, schema);
 
         if (!result.valid) {
             console.log(result);
@@ -57,7 +56,7 @@ describe('resources.Patient', function () {
     it('rejects a Patient with invalid id (confirms inheritance from Resource)', function () {
         data.id = '$%^&';
 
-        var result = validator.validate(data, schema);
+        var result = fhir.validator.validate(data, schema);
 
         expect(result.valid).to.be.false;
     });
@@ -65,7 +64,7 @@ describe('resources.Patient', function () {
     it('rejects a Patient with more than one deceased[x]', function () {
         data.deceasedDateTime = '2014-04-20';
 
-        var result = validator.validate(data, schema);
+        var result = fhir.validator.validate(data, schema);
 
         expect(result.valid).to.be.false;
     });
@@ -73,7 +72,7 @@ describe('resources.Patient', function () {
     it('rejects a Patient with more than one multipleBirth[x]', function () {
         data.multipleBirthInteger = 2;
 
-        var result = validator.validate(data, schema);
+        var result = fhir.validator.validate(data, schema);
 
         expect(result.valid).to.be.false;
     });

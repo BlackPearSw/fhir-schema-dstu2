@@ -1,15 +1,10 @@
-var Annotation = require('../../lib/index').elements.Annotation;
-var formats = require('../../lib').formats;
-var Validator = require('../../lib').Validator;
-
-var tv4 = require('tv4');
+var fhir = require('../../lib');
 
 var expect = require('chai').expect;
 
 describe('elements.Annotation', function () {
 
-    var schema = Annotation();
-    var validator = new Validator(schema, formats);
+    var schema = fhir.schema.Annotation;
     var data;
 
     beforeEach(function(){
@@ -23,7 +18,7 @@ describe('elements.Annotation', function () {
     });
 
     it('validates an Annotation', function () {
-        var result = validator.validate(data, schema);
+        var result = fhir.validator.validate(data, schema);
 
         if (!result.valid) {
             console.log(result);
@@ -36,7 +31,7 @@ describe('elements.Annotation', function () {
     it('rejects an Annotation with more than one author[x]', function () {
         data.authorString = 'Dr Doolittle';
 
-        var result = validator.validate(data, schema);
+        var result = fhir.validator.validate(data, schema);
 
         expect(result.valid).to.be.false;
     });
@@ -44,7 +39,7 @@ describe('elements.Annotation', function () {
     it('rejects an Annotation without text', function () {
         delete data.text;
 
-        var result = validator.validate(data, schema);
+        var result = fhir.validator.validate(data, schema);
 
         expect(result.valid).to.be.false;
     });

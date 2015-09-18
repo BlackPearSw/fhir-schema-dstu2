@@ -1,13 +1,9 @@
-var Validator = require('../../lib').Validator;
 var fhir = require('../../lib');
-
 var expect = require('chai').expect;
 
 describe('resources.DomainResource', function () {
 
-    var schema = fhir.resources.DomainResource({resourceType:'Foo'});
-    var validator = new Validator(fhir.schema, fhir.formats);
-
+    var schema = fhir.schema.DomainResource;
     var data;
 
     beforeEach(function(){
@@ -39,7 +35,7 @@ describe('resources.DomainResource', function () {
     });
 
     it('validates a DomainResource', function () {
-        var result = validator.validate(data, schema);
+        var result = fhir.validator.validate(data, schema);
 
         if (!result.valid){
             console.log(result);
@@ -51,7 +47,7 @@ describe('resources.DomainResource', function () {
     it('rejects a DomainResource with invalid id (confirms inheritance from Resource)', function () {
         data.id = '$%^&';
 
-        var result = validator.validate(data, schema);
+        var result = fhir.validator.validate(data, schema);
 
         expect(result.valid).to.be.false;
     });

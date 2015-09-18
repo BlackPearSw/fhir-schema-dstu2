@@ -1,10 +1,10 @@
-var string = require('../../lib/index').elements.string;
+var fhir = require('../../lib');
 
 var tv4 = require('tv4');
 var expect = require('chai').expect;
 
 describe('elements.string', function () {
-    var schema = string();
+    var schema = fhir.schema.string;
 
     it('validates a string', function () {
 

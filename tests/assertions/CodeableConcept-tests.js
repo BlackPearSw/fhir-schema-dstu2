@@ -1,4 +1,4 @@
-var CodeableConcept = require('../../lib').assertions.CodeableConcept;
+var CodeableConcept = require('../../lib/utils/assertions').CodeableConcept;
 
 var tv4 = require('tv4');
 var expect = require('chai').expect;

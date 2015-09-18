@@ -1,10 +1,10 @@
-var instant = require('../../lib/index').elements.instant;
+var fhir = require('../../lib');
 
 var tv4 = require('tv4');
 var expect = require('chai').expect;
 
 describe('elements.instant', function () {
-    var schema = instant();
+    var schema = fhir.schema.instant;
 
     it('validates a instant', function () {
 

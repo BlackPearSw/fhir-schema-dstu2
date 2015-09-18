@@ -1,10 +1,10 @@
-var decimal = require('../../lib/index').elements.decimal;
+var fhir = require('../../lib');
 
 var tv4 = require('tv4');
 var expect = require('chai').expect;
 
 describe('elements.decimal', function () {
-    var schema = decimal();
+    var schema = fhir.schema.decimal;
 
     it('validates decimal (1)', function () {
         var data = 1;

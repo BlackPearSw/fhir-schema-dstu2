@@ -1,12 +1,8 @@
-var Ratio = require('../../lib/index').elements.Ratio;
-var formats = require('../../lib').formats;
-var Validator = require('../../lib').Validator;
-
+var fhir = require('../../lib');
 var expect = require('chai').expect;
 
 describe('elements.Ratio', function () {
-    var schema = Ratio();
-    var validator = new Validator(schema, formats);
+    var schema = fhir.schema.Ratio;
     var data;
 
     beforeEach(function(){
@@ -21,7 +17,7 @@ describe('elements.Ratio', function () {
     });
 
     it('validates Ratio', function () {
-        var result = validator.validate(data, schema);
+        var result = fhir.validator.validate(data, schema);
 
         if (!result.valid) {
             console.log(result);
@@ -36,7 +32,7 @@ describe('elements.Ratio', function () {
 
         data.extension = [];
 
-        var result = validator.validate(data, schema);
+        var result = fhir.validator.validate(data, schema);
 
         expect(result.valid).to.be.true;
     });
@@ -44,7 +40,7 @@ describe('elements.Ratio', function () {
     it('rejects a Ratio with numerator only', function () {
         delete data.denominator;
 
-        var result = validator.validate(data, schema);
+        var result = fhir.validator.validate(data, schema);
 
         expect(result.valid).to.be.false;
     });
@@ -52,7 +48,7 @@ describe('elements.Ratio', function () {
     it('rejects a Ratio with denominator only', function () {
         delete data.numerator;
 
-        var result = validator.validate(data, schema);
+        var result = fhir.validator.validate(data, schema);
 
         expect(result.valid).to.be.false;
     });
@@ -61,7 +57,7 @@ describe('elements.Ratio', function () {
         delete data.numerator;
         delete data.denominator;
 
-        var result = validator.validate(data, schema);
+        var result = fhir.validator.validate(data, schema);
 
         expect(result.valid).to.be.false;
     });
