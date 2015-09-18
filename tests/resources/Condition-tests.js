@@ -1,12 +1,9 @@
-var Validator = require('../../lib').Validator;
 var fhir = require('../../lib');
-
 var expect = require('chai').expect;
 
 describe('resources.Condition', function () {
 
     var schema = fhir.schema.Condition;
-    var validator = new Validator(fhir.schema, fhir.formats);
     var data;
 
     beforeEach(function () {
@@ -78,7 +75,7 @@ describe('resources.Condition', function () {
     });
 
     it('validates a Condition', function () {
-        var result = validator.validate(data, schema);
+        var result = fhir.validator.validate(data, schema);
 
         if (!result.valid) {
             console.log(result);
@@ -90,7 +87,7 @@ describe('resources.Condition', function () {
     it('rejects a Condition with invalid id (confirms inheritance from Resource)', function () {
         data.id = '$%^&';
 
-        var result = validator.validate(data, schema);
+        var result = fhir.validator.validate(data, schema);
 
         expect(result.valid).to.be.false;
     });
@@ -98,7 +95,7 @@ describe('resources.Condition', function () {
     it('rejects a Condition without a patient', function () {
         delete data.patient;
 
-        var result = validator.validate(data, schema);
+        var result = fhir.validator.validate(data, schema);
 
         expect(result.valid).to.be.false;
     });
@@ -106,7 +103,7 @@ describe('resources.Condition', function () {
     it('rejects a Condition without a code', function () {
         delete data.code;
 
-        var result = validator.validate(data, schema);
+        var result = fhir.validator.validate(data, schema);
 
         expect(result.valid).to.be.false;
     });
@@ -114,7 +111,7 @@ describe('resources.Condition', function () {
     it('rejects a Condition without a verificationStatus', function () {
         delete data.verificationStatus;
 
-        var result = validator.validate(data, schema);
+        var result = fhir.validator.validate(data, schema);
 
         expect(result.valid).to.be.false;
     });
@@ -122,7 +119,7 @@ describe('resources.Condition', function () {
     it('rejects a Condition with more than one onset[x]', function () {
         data.onsetDateTime = '2014-04-20';
 
-        var result = validator.validate(data, schema);
+        var result = fhir.validator.validate(data, schema);
 
         expect(result.valid).to.be.false;
     });
@@ -130,7 +127,7 @@ describe('resources.Condition', function () {
     it('rejects a Condition with more than one abatement[x]', function () {
         data.abatementDateTime = '2014-04-20';
 
-        var result = validator.validate(data, schema);
+        var result = fhir.validator.validate(data, schema);
 
         expect(result.valid).to.be.false;
     });
@@ -138,7 +135,7 @@ describe('resources.Condition', function () {
     it('rejects a Condition.stage without summary or assessment', function () {
         delete data.stage.summary;
 
-        var result = validator.validate(data, schema);
+        var result = fhir.validator.validate(data, schema);
 
         expect(result.valid).to.be.false;
     });
@@ -146,7 +143,7 @@ describe('resources.Condition', function () {
     it('rejects a Condition.evidence without code or details', function () {
         delete data.evidence[0].detail;
 
-        var result = validator.validate(data, schema);
+        var result = fhir.validator.validate(data, schema);
 
         expect(result.valid).to.be.false;
     });

@@ -1,13 +1,9 @@
 var fhir = require('../../lib');
-var Validator = require('../../lib').Validator;
-
 var expect = require('chai').expect;
-
 
 describe('elements.Timing', function () {
 
     var schema = fhir.schema.Timing;
-    var validator = new Validator(fhir.schema, fhir.formats);
     var data;
 
     beforeEach(function(){
@@ -26,7 +22,7 @@ describe('elements.Timing', function () {
 
 
     it('validates a Timing', function () {
-        var result = validator.validate(data, schema);
+        var result = fhir.validator.validate(data, schema);
 
         if (!result.valid) {
             console.log(result);
@@ -40,7 +36,7 @@ describe('elements.Timing', function () {
             value: 1.23
         };
 
-        var result = validator.validate(data, schema);
+        var result = fhir.validator.validate(data, schema);
 
         expect(result.valid).to.be.false;
     });

@@ -1,12 +1,9 @@
-var Validator = require('../../lib').Validator;
 var fhir = require('../../lib');
-
 var expect = require('chai').expect;
 
 describe('resources.Organization', function () {
 
     var schema = fhir.schema.Organization;
-    var validator = new Validator(fhir.schema, fhir.formats);
     var data;
 
     beforeEach(function () {
@@ -50,7 +47,7 @@ describe('resources.Organization', function () {
     });
 
     it('validates an Organization', function () {
-        var result = validator.validate(data, schema);
+        var result = fhir.validator.validate(data, schema);
 
         if (!result.valid) {
             console.log(result);
@@ -62,7 +59,7 @@ describe('resources.Organization', function () {
     it('rejects an Organization with invalid id (confirms inheritance from Resource)', function () {
         data.id = '$%^&';
 
-        var result = validator.validate(data, schema);
+        var result = fhir.validator.validate(data, schema);
 
         expect(result.valid).to.be.false;
     });

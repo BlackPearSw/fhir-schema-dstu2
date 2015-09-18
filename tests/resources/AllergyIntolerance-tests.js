@@ -1,12 +1,9 @@
-var Validator = require('../../lib').Validator;
 var fhir = require('../../lib');
-
 var expect = require('chai').expect;
 
 describe('resources.AllergyIntolerance', function () {
 
     var schema = fhir.schema.AllergyIntolerance;
-    var validator = new Validator(fhir.schema, fhir.formats);
     var data;
 
     beforeEach(function () {
@@ -61,7 +58,7 @@ describe('resources.AllergyIntolerance', function () {
     });
 
     it('validates an AllergyIntolerance', function () {
-        var result = validator.validate(data, schema);
+        var result = fhir.validator.validate(data, schema);
 
         if (!result.valid) {
             console.log(result);
@@ -73,7 +70,7 @@ describe('resources.AllergyIntolerance', function () {
     it('rejects an AllergyIntolerance with invalid id (confirms inheritance from Resource)', function () {
         data.id = '$%^&';
 
-        var result = validator.validate(data, schema);
+        var result = fhir.validator.validate(data, schema);
 
         expect(result.valid).to.be.false;
     });
@@ -82,7 +79,7 @@ describe('resources.AllergyIntolerance', function () {
     it('rejects an AllergyIntolerance without patient', function () {
         delete data.patient;
 
-        var result = validator.validate(data, schema);
+        var result = fhir.validator.validate(data, schema);
 
         expect(result.valid).to.be.false;
     });
@@ -90,7 +87,7 @@ describe('resources.AllergyIntolerance', function () {
     it('rejects an AllergyIntolerance without substance', function () {
         delete data.substance;
 
-        var result = validator.validate(data, schema);
+        var result = fhir.validator.validate(data, schema);
 
         expect(result.valid).to.be.false;
     });
@@ -98,7 +95,7 @@ describe('resources.AllergyIntolerance', function () {
     it('rejects an AllergyIntolerance with invalid status', function () {
         data.status = 'foo';
 
-        var result = validator.validate(data, schema);
+        var result = fhir.validator.validate(data, schema);
 
         expect(result.valid).to.be.false;
     });
@@ -106,7 +103,7 @@ describe('resources.AllergyIntolerance', function () {
     it('rejects an AllergyIntolerance with invalid criticality', function () {
         data.criticality = 'foo';
 
-        var result = validator.validate(data, schema);
+        var result = fhir.validator.validate(data, schema);
 
         expect(result.valid).to.be.false;
     });
@@ -114,7 +111,7 @@ describe('resources.AllergyIntolerance', function () {
     it('rejects an AllergyIntolerance with invalid type', function () {
         data.type = 'foo';
 
-        var result = validator.validate(data, schema);
+        var result = fhir.validator.validate(data, schema);
 
         expect(result.valid).to.be.false;
     });
@@ -122,7 +119,7 @@ describe('resources.AllergyIntolerance', function () {
     it('rejects an AllergyIntolerance with invalid category', function () {
         data.category = 'foo';
 
-        var result = validator.validate(data, schema);
+        var result = fhir.validator.validate(data, schema);
 
         expect(result.valid).to.be.false;
     });
@@ -130,7 +127,7 @@ describe('resources.AllergyIntolerance', function () {
     it('rejects an AllergyIntolerance with invalid reaction.certainty', function () {
         data.reaction[0].certainty = 'foo';
 
-        var result = validator.validate(data, schema);
+        var result = fhir.validator.validate(data, schema);
 
         expect(result.valid).to.be.false;
     });
@@ -138,7 +135,7 @@ describe('resources.AllergyIntolerance', function () {
     it('rejects an AllergyIntolerance with reaction.manifestation missing', function () {
         delete data.reaction[0].manifestation;
 
-        var result = validator.validate(data, schema);
+        var result = fhir.validator.validate(data, schema);
 
         expect(result.valid).to.be.false;
     });
@@ -146,7 +143,7 @@ describe('resources.AllergyIntolerance', function () {
     it('rejects an AllergyIntolerance with invalid reaction.severity', function () {
         data.reaction[0].severity = 'foo';
 
-        var result = validator.validate(data, schema);
+        var result = fhir.validator.validate(data, schema);
 
         expect(result.valid).to.be.false;
     });

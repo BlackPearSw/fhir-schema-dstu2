@@ -1,13 +1,9 @@
-var Validator = require('../../lib').Validator;
 var fhir = require('../../lib');
-
 var expect = require('chai').expect;
 
 describe('resources.Resource', function () {
 
     var schema = fhir.schema.Resource;
-    var validator = new Validator(fhir.schema, fhir.formats);
-
     var data;
 
     beforeEach(function(){
@@ -27,7 +23,7 @@ describe('resources.Resource', function () {
     });
 
     it('validates a Resource', function () {
-        var result = validator.validate(data, schema);
+        var result = fhir.validator.validate(data, schema);
 
         if (!result.valid){
             console.log(result);
@@ -39,7 +35,7 @@ describe('resources.Resource', function () {
     it('rejects a Resource without resourceType', function () {
         delete data.resourceType;
 
-        var result = validator.validate(data, schema);
+        var result = fhir.validator.validate(data, schema);
 
         expect(result.valid).to.be.false;
     });
@@ -47,7 +43,7 @@ describe('resources.Resource', function () {
     it('rejects a Resource with invalid id', function () {
         data.id = '$%^&';
 
-        var result = validator.validate(data, schema);
+        var result = fhir.validator.validate(data, schema);
 
         expect(result.valid).to.be.false;
     });

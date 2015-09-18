@@ -1,12 +1,8 @@
 var fhir = require('../../lib');
-var Validator = require('../../lib').Validator;
-var formats = require('../../lib').formats;
-
 var expect = require('chai').expect;
 
 describe('elements.Quantity', function () {
     var schema = fhir.schema.Quantity;
-    var validator = new Validator(fhir.schema, fhir.formats);
     var data;
 
     beforeEach(function(){
@@ -20,7 +16,7 @@ describe('elements.Quantity', function () {
     });
 
     it('validates Quantity', function () {
-        var result = validator.validate(data, schema);
+        var result = fhir.validator.validate(data, schema);
 
         if (!result.valid) {
             console.log(result);
@@ -32,7 +28,7 @@ describe('elements.Quantity', function () {
     it('rejects an invalid Quantity', function () {
         var data = ' !£$';
 
-        var result = validator.validate(data, schema);
+        var result = fhir.validator.validate(data, schema);
 
         expect(result.valid).to.be.false;
     });
@@ -40,7 +36,7 @@ describe('elements.Quantity', function () {
     it('rejects when comparator invalid', function () {
         data.comparator = ' !£$';
 
-        var result = validator.validate(data, schema);
+        var result = fhir.validator.validate(data, schema);
 
         expect(result.valid).to.be.false;
     });

@@ -1,13 +1,10 @@
 var fhir = require('../../lib');
-var Validator = require('../../lib').Validator;
-
 var expect = require('chai').expect;
 
 describe('elements.Coding', function () {
 
     var schema = fhir.schema.Coding;
     var data;
-    var validator = new Validator(fhir.schema, fhir.formats);
 
     beforeEach(function () {
         data = {
@@ -20,7 +17,7 @@ describe('elements.Coding', function () {
     });
 
     it('validates a Coding', function () {
-        var result = validator.validate(data, schema);
+        var result = fhir.validator.validate(data, schema);
 
         if (!result.valid){
             console.log(result);
@@ -32,7 +29,7 @@ describe('elements.Coding', function () {
     it('rejects an invalid Coding (primary not boolean)', function () {
         data.primary = 'fail';
 
-        var result = validator.validate(data, schema);
+        var result = fhir.validator.validate(data, schema);
 
         expect(result.valid).to.be.false;
     });
