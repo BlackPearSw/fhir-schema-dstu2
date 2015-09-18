@@ -1,0 +1,1 @@
+{"title":"Annotation","required":["text"],"allOf":[{"$ref":"Element"}],"properties":{"authorReference":{"$ref":"Reference"},"authorString":{"$ref":"string"},"time":{"$ref":"dateTime"},"text":{"$ref":"string"}},"format":"Annotation","$schema":"http://json-schema.org/draft-04/schema#","id":"http://github.com/BlackPearSw/fhir-schema-dstu2/Annotation"}

@@ -1,0 +1,1 @@
+{"title":"Ratio","allOf":[{"$ref":"Element"}],"oneOf":[{"required":["extension"]},{"required":["numerator","denominator"]}],"properties":{"numerator":{"$ref":"Quantity"},"denominator":{"$ref":"Quantity"}},"$schema":"http://json-schema.org/draft-04/schema#","id":"http://github.com/BlackPearSw/fhir-schema-dstu2/Ratio"}

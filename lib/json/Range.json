@@ -1,0 +1,1 @@
+{"title":"Range","allOf":[{"$ref":"Element"}],"properties":{"low":{"$ref":"SimpleQuantity"},"high":{"$ref":"SimpleQuantity"}},"$schema":"http://json-schema.org/draft-04/schema#","id":"http://github.com/BlackPearSw/fhir-schema-dstu2/Range"}
