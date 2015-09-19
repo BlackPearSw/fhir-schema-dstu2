@@ -27,7 +27,8 @@ describe('resources.DomainResource', function () {
             ],
             extension: [
                 {
-                    url: 'http://foo.bar/x'
+                    url: 'http://foo.bar/x',
+                    valueBoolean: true
                 }
             ]
 

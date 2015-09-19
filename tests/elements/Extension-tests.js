@@ -13,6 +13,8 @@ describe('elements.Extension', function () {
     });
 
     it('validates an Extension', function () {
+        data.valueBoolean = true;
+
         var result = fhir.validator.validate(data, schema);
 
         if (!result.valid){
@@ -261,7 +263,8 @@ describe('elements.Extension', function () {
 
     it('validates an Extension with extension', function () {
         data.extension = [{
-            url: 'http://health.org/ext/ext'
+            url: 'http://health.org/ext/ext',
+            valueBoolean: true
         }];
 
         var result = fhir.validator.validate(data, schema);
