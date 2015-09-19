@@ -68,6 +68,14 @@ describe('resources.Slot', function () {
         expect(result.valid).to.be.false;
     });
 
+    it('rejects a Slot with invalid freeBusyType', function () {
+        data.freeBusyType = 'foo';
+
+        var result = fhir.validator.validate(data, schema);
+
+        expect(result.valid).to.be.false;
+    });
+
     it('rejects a Slot with missing start', function () {
         delete data.start;
 
