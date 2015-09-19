@@ -31,6 +31,9 @@ describe('resources.MedicationOrder', function () {
                 display: 'For horrible condition'
             },
             notes: 'The quick brown fox etc',
+            medicationReference: {
+                display: 'Aspirin'
+            },
             dosageInstruction: [
                 {
                     text: '2 tablets daily',
@@ -125,6 +128,24 @@ describe('resources.MedicationOrder', function () {
         data.reasonCodeableConcept = {
             text: 'For horrible condition'
         };
+
+        var result = fhir.validator.validate(data, schema);
+
+        expect(result.valid).to.be.false;
+    });
+
+    it('rejects a MedicationOrder with more than one medication[x]', function () {
+        data.medicationCodeableConcept = {
+            text: 'Pink pills'
+        };
+
+        var result = fhir.validator.validate(data, schema);
+
+        expect(result.valid).to.be.false;
+    });
+
+    it('rejects a MedicationOrder without medication[x]', function () {
+        delete data.medicationReference;
 
         var result = fhir.validator.validate(data, schema);
 

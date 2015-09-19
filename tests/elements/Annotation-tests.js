@@ -28,6 +28,17 @@ describe('elements.Annotation', function () {
         expect(result.valid).to.be.true;
     });
 
+    it('validates an Annotation without author', function () {
+        delete data.authorReference;
+
+        var result = fhir.validator.validate(data, schema);
+
+        if (!result.valid) {
+            console.log(result);
+        }
+
+        expect(result.valid).to.be.true;
+    });
 
     it('rejects an Annotation with more than one author[x]', function () {
         data.authorString = 'Dr Doolittle';
