@@ -3,15 +3,19 @@
 JSON schema v4 schemas for FHIR DSTU2 resources, bundled with tv4 validator.
 
 For Resources:
-- Person
-- Patient
-- Practitioner
-- Organization
-- Condition
-- MedicationOrder
-- Immunization
 - AllergyIntolerance
+- Appointment
+- Bundle
+- Condition
+- Immunization
+- MedicationOrder
 - OperationOutcome
+- Organization
+- Patient
+- Person
+- Practitioner
+- Schedule
+- Slot
 
 ## Prerequisites
 
