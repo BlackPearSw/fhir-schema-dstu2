@@ -32,9 +32,11 @@ describe('resources.Appointment', function () {
             start: '2015-09-30T14:00:00',
             end: '2015-09-30T14:30:00',
             minutesDuration: 15,
-            slot: {
-                reference: 'Slot/123'
-            },
+            slot: [
+                {
+                    reference: 'Slot/123'
+                }
+            ],
             comment: 'The quick brown fox etc.',
             participant: [
                 {
@@ -51,16 +53,6 @@ describe('resources.Appointment', function () {
 
                 }
             ]
-
-            /*schedule: {
-             reference: 'Schedule/123'
-             },
-             freeBusyType: 'free',
-             start: '2015-09-22T12:00:00:000Z',
-             end: '2015-09-22T12:00:00:000Z',
-             overbooked: true,
-             comment: 'The quick brown fox jumped etc'
-             */
         };
     });
 
@@ -98,7 +90,7 @@ describe('resources.Appointment', function () {
         expect(result.valid).to.be.false;
     });
 
-    describe('participant', function(){
+    describe('participant', function () {
         it('rejects an Appointment without participant', function () {
             data.participant = [];
 
