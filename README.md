@@ -7,6 +7,7 @@ For Resources:
 - Appointment
 - Bundle
 - Condition
+- DomainResource
 - Immunization
 - MedicationOrder
 - OperationOutcome
@@ -14,6 +15,7 @@ For Resources:
 - Patient
 - Person
 - Practitioner
+- Resource
 - Schedule
 - Slot
 
@@ -83,6 +85,11 @@ Tests can be run using:
     }
 
 ## Notices
+
+FHIR resource definitions Copyright (c) 2011+ HL7.org
+
+Used under the terms of the [FHIR License](https://www.hl7.org/fhir/license.html)
+
 
 Copyright (c) 2014-2015 Black Pear Software, (c) 2015 Endeavour Health Charitable Trust
 
