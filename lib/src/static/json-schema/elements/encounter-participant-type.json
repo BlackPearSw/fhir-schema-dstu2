@@ -1,0 +1,143 @@
+{
+  "id": "http://cim.endeavourhealth.org/schema/fhir/dstu2/encounter-participant-type",
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "oneOf": [
+    {
+      "type": "string",
+      "enum": [
+        "translator",
+        "emergency",
+        "ADM",
+        "ATND",
+        "CALLBCK",
+        "CON",
+        "DIS",
+        "ESC",
+        "REF",
+        "SPRF",
+        "PPRF",
+        "PART"
+      ]
+    },
+    {
+      "type": "object",
+      "required": [
+        "coding"
+      ],
+      "properties": {
+        "coding": {
+          "type": "array",
+          "minItems": 1,
+          "items": [
+            {
+              "required": [
+                "code", "system"
+              ],
+              "properties": {
+                  "oneOf": [
+                    {
+                      "system": {
+                        "pattern": "^http://hl7.org/fhir/participant-type$"
+                      },
+                      "code": {
+                        "pattern": "^translator$"
+                      }
+                    },
+                    {
+                      "system": {
+                        "pattern": "^http://hl7.org/fhir/participant-type$"
+                      },
+                      "code": {
+                        "pattern": "^emergency$"
+                      }
+                    },
+                    {
+                      "system": {
+                        "pattern": "^http://hl7.org/fhir/v3/ParticipationType$"
+                      },
+                      "code": {
+                        "pattern": "^ADM$"
+                      }
+                    },
+                    {
+                      "system": {
+                        "pattern": "^http://hl7.org/fhir/v3/ParticipationType$"
+                      },
+                      "code": {
+                        "pattern": "^ATND$"
+                      }
+                    },
+                    {
+                      "system": {
+                        "pattern": "^http://hl7.org/fhir/v3/ParticipationType$"
+                      },
+                      "code": {
+                        "pattern": "^CALLBCK$"
+                      }
+                    },
+                    {
+                      "system": {
+                        "pattern": "^http://hl7.org/fhir/v3/ParticipationType$"
+                      },
+                      "code": {
+                        "pattern": "^CON$"
+                      }
+                    },
+                    {
+                      "system": {
+                        "pattern": "^http://hl7.org/fhir/v3/ParticipationType$"
+                      },
+                      "code": {
+                        "pattern": "^DIS$"
+                      }
+                    },
+                    {
+                      "system": {
+                        "pattern": "^http://hl7.org/fhir/v3/ParticipationType$"
+                      },
+                      "code": {
+                        "pattern": "^ESC$"
+                      }
+                    },
+                    {
+                      "system": {
+                        "pattern": "^http://hl7.org/fhir/v3/ParticipationType$"
+                      },
+                      "code": {
+                        "pattern": "^REF$"
+                      }
+                    },
+                    {
+                      "system": {
+                        "pattern": "^http://hl7.org/fhir/v3/ParticipationType$"
+                      },
+                      "code": {
+                        "pattern": "^SPRF$"
+                      }
+                    },
+                    {
+                      "system": {
+                        "pattern": "^http://hl7.org/fhir/v3/ParticipationType$"
+                      },
+                      "code": {
+                        "pattern": "^PPRF$"
+                      }
+                    },
+                    {
+                      "system": {
+                        "pattern": "^http://hl7.org/fhir/v3/ParticipationType$"
+                      },
+                      "code": {
+                        "pattern": "^PART$"
+                      }
+                    }
+                  ]
+                }
+              }
+          ],
+          "additionalItems": true
+        }
+      }
+    }
+  ]
+}

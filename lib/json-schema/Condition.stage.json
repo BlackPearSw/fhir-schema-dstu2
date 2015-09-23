@@ -1,0 +1,1 @@
+{"id":"http://cim.endeavourhealth.org/schema/fhir/dstu2/Condition.stage","title":"Condition.stage","type":"object","allOf":[{"$ref":"BackboneElement"},{"$ref":"Condition.stage.con-1"}],"required":[],"properties":{"summary":{"$ref":"CodeableConcept"},"assessment":{"type":"array","items":{"$ref":"Reference"}}},"$schema":"http://json-schema.org/draft-04/schema#"}

@@ -1,0 +1,6 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "id": "http://cim.endeavourhealth.org/schema/fhir/dstu2/uri",
+  "title": "uri",
+  "type": "string"
+}

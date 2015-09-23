@@ -1,0 +1,7 @@
+{
+  "title": "code",
+  "type": "string",
+  "pattern": "^[^\\s]+([\\s]+[^\\s]+)*$",
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "id": "http://cim.endeavourhealth.org/schema/fhir/dstu2/code"
+}

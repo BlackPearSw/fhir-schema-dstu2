@@ -1,0 +1,13 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "id": "http://cim.endeavourhealth.org/schema/fhir/dstu2/Condition.stage.con-1",
+  "title": "Condition.stage.con-1",
+  "oneOf": [
+    {
+      "required": ["summary"]
+    },
+    {
+      "required": ["assessment"]
+    }
+  ]
+}

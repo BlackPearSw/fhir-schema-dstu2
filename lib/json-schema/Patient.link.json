@@ -1,0 +1,1 @@
+{"id":"http://cim.endeavourhealth.org/schema/fhir/dstu2/Patient.link","title":"Patient.link","type":"object","allOf":[{"$ref":"BackboneElement"}],"required":["other","type"],"properties":{"other":{"$ref":"Reference"},"type":{"allOf":[{"$ref":"code"},{"$ref":"link-type"}]}},"$schema":"http://json-schema.org/draft-04/schema#"}

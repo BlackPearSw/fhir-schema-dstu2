@@ -1,0 +1,1 @@
+{"id":"http://cim.endeavourhealth.org/schema/fhir/dstu2/Immunization.reaction","title":"Immunization.reaction","type":"object","allOf":[{"$ref":"BackboneElement"}],"required":[],"properties":{"date":{"$ref":"dateTime"},"detail":{"$ref":"Reference"},"reported":{"$ref":"boolean"}},"$schema":"http://json-schema.org/draft-04/schema#"}

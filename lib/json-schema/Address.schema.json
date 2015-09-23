@@ -1,0 +1,46 @@
+{
+  "title": "Address",
+  "allOf": [
+    {
+      "$ref": "Element"
+    }
+  ],
+  "properties": {
+    "use": {
+      "allOf": [
+        {
+          "$ref": "code"
+        },
+        {
+          "$ref": "address-use"
+        }
+      ]
+    },
+    "text": {
+      "$ref": "string"
+    },
+    "line": {
+      "type": "array",
+      "items": {
+        "$ref": "string"
+      }
+    },
+    "city": {
+      "$ref": "string"
+    },
+    "state": {
+      "$ref": "string"
+    },
+    "postalCode": {
+      "$ref": "string"
+    },
+    "country": {
+      "$ref": "string"
+    },
+    "period": {
+      "$ref": "Period"
+    }
+  },
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "id": "http://cim.endeavourhealth.org/schema/fhir/dstu2/Address"
+}

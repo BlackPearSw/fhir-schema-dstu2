@@ -1,0 +1,1 @@
+{"id":"http://cim.endeavourhealth.org/schema/fhir/dstu2/Patient.communication","title":"Patient.communication","type":"object","allOf":[{"$ref":"BackboneElement"}],"required":["language"],"properties":{"language":{"$ref":"CodeableConcept"},"preferred":{"$ref":"boolean"}},"$schema":"http://json-schema.org/draft-04/schema#"}

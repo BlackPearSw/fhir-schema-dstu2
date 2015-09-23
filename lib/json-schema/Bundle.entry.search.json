@@ -1,0 +1,1 @@
+{"id":"http://cim.endeavourhealth.org/schema/fhir/dstu2/Bundle.entry.search","title":"Bundle.entry.search","type":"object","allOf":[{"$ref":"BackboneElement"}],"required":[],"properties":{"mode":{"allOf":[{"$ref":"code"},{"$ref":"search-entry-mode"}]},"score":{"$ref":"decimal"}},"$schema":"http://json-schema.org/draft-04/schema#"}

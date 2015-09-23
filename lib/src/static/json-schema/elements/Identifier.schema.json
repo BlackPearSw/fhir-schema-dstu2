@@ -1,0 +1,28 @@
+{
+  "title": "Identifier",
+  "allOf": [
+    {
+      "$ref": "Element"
+    }
+  ],
+  "properties": {
+    "use": {
+      "allOf": [
+        {
+          "$ref": "code"
+        },
+        {
+          "$ref": "identifier-use"
+        }
+      ]
+    },
+    "system": {
+      "$ref": "string"
+    },
+    "value": {
+      "$ref": "string"
+    }
+  },
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "id": "http://cim.endeavourhealth.org/schema/fhir/dstu2/Identifier"
+}

@@ -1,0 +1,1 @@
+{"id":"http://cim.endeavourhealth.org/schema/fhir/dstu2/Patient.animal","title":"Patient.animal","type":"object","allOf":[{"$ref":"BackboneElement"}],"required":["species"],"properties":{"species":{"$ref":"CodeableConcept"},"breed":{"$ref":"CodeableConcept"},"genderStatus":{"$ref":"CodeableConcept"}},"$schema":"http://json-schema.org/draft-04/schema#"}

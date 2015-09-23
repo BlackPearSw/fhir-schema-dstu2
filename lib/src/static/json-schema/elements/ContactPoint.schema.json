@@ -1,0 +1,38 @@
+{
+  "title": "ContactPoint",
+  "allOf": [
+    {
+      "$ref": "Element"
+    }
+  ],
+  "properties": {
+    "system": {
+      "allOf": [
+        {
+          "$ref": "code"
+        },
+        {
+          "$ref": "contact-point-system"
+        }
+      ]
+    },
+    "value": {
+      "$ref": "string"
+    },
+    "use": {
+      "allOf": [
+        {
+          "$ref": "code"
+        },
+        {
+          "$ref": "ContactPointUse"
+        }
+      ]
+    },
+    "period": {
+      "$ref": "Period"
+    }
+  },
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "id": "http://cim.endeavourhealth.org/schema/fhir/dstu2/ContactPoint"
+}

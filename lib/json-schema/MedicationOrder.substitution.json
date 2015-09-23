@@ -1,0 +1,1 @@
+{"id":"http://cim.endeavourhealth.org/schema/fhir/dstu2/MedicationOrder.substitution","title":"MedicationOrder.substitution","type":"object","allOf":[{"$ref":"BackboneElement"}],"required":["type"],"properties":{"type":{"$ref":"CodeableConcept"},"reason":{"$ref":"CodeableConcept"}},"$schema":"http://json-schema.org/draft-04/schema#"}
