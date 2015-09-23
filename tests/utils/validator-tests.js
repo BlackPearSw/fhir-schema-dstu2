@@ -25,6 +25,12 @@ describe('utils.validator', function () {
         expect(result.valid).to.be.true;
     });
 
+    it('decorates result with warnings', function () {
+        var result = fhir.validator.validate(data, schema);
+
+        expect(result.warnings).to.be.an('array');
+    });
+
     it('NB: does not reject a Resource with unknown format', function () {
         schema.format = 'Unknown';
 
