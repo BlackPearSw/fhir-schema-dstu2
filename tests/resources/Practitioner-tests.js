@@ -49,19 +49,24 @@ describe('resources.Practitioner', function () {
                             }
                         ]
                     },
-                    specialty: {
-                        text: 'doctor'
-
-                    },
+                    specialty: [
+                        {
+                            text: 'doctor'
+                        }
+                    ],
                     period: {
                         start: '1990-04-01'
                     },
-                    location: {
-                        display: 'London'
-                    },
-                    healthcareService: {
-                        display: 'investigations'
-                    }
+                    location: [
+                        {
+                            display: 'London'
+                        }
+                    ],
+                    healthcareService: [
+                        {
+                            display: 'investigations'
+                        }
+                    ]
                 }
             ],
             qualification: [
@@ -83,9 +88,11 @@ describe('resources.Practitioner', function () {
                     }
                 }
             ],
-            communication: {
-                text: 'English'
-            }
+            communication: [
+                {
+                    text: 'English'
+                }
+            ]
         };
     });
 

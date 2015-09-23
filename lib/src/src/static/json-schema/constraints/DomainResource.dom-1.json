@@ -1,0 +1,10 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "id": "http://cim.endeavourhealth.org/schema/fhir/dstu2/DomainResource.dom-1",
+  "title": "DomainResource.dom-1",
+  "not": {
+    "required": [
+      "narrative"
+    ]
+  }
+}

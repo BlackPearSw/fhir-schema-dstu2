@@ -40,9 +40,9 @@ describe('resources.AllergyIntolerance', function () {
                         text: 'rubber gloves'
                     },
                     certainty: 'confirmed',
-                    manifestation: {
+                    manifestation: [{
                         text: 'rash'
-                    },
+                    }],
                     description: 'The quick brown fox etc',
                     onset: '2014-04-15T09:31:22',
                     severity: 'moderate',

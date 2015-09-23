@@ -1,0 +1,1 @@
+{"title":"Element","type":"object","required":[],"properties":{"id":{"$ref":"id"},"extension":{"type":"array","items":{"$ref":"Extension"}}},"$schema":"http://json-schema.org/draft-04/schema#","id":"http://cim.endeavourhealth.org/schema/fhir/dstu2/Element"}

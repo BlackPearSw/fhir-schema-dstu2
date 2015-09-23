@@ -20,9 +20,7 @@ describe('resources.DomainResource', function () {
             language: 'en-GB',
             contained: [
                 {
-                    resourceType: 'Bar',
-                    foo: 'fubar',
-                    description: 'The quick brown fox etc'
+                    resourceType: 'Patient'
                 }
             ],
             extension: [

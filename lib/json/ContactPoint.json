@@ -1,1 +1,0 @@
-{"title":"ContactPoint","allOf":[{"$ref":"Element"}],"properties":{"system":{"allOf":[{"$ref":"code"},{"$ref":"ContactPointSystem"}]},"value":{"$ref":"string"},"use":{"allOf":[{"$ref":"code"},{"$ref":"ContactPointUse"}]},"period":{"$ref":"Period"}},"$schema":"http://json-schema.org/draft-04/schema#","id":"http://github.com/BlackPearSw/fhir-schema-dstu2/ContactPoint"}

@@ -42,7 +42,12 @@ describe('resources.Appointment', function () {
                 {
                     type: [
                         {
-                            text: 'Doctor'
+                            coding: [
+                                {
+                                    system: 'http://hl7.org/fhir/v3/ParticipationType',
+                                    code: 'CON'
+                                }
+                            ]
                         }
                     ],
                     actor: {

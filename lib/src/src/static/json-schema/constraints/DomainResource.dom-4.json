@@ -1,0 +1,19 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "id": "http://cim.endeavourhealth.org/schema/fhir/dstu2/DomainResource.dom-4",
+  "title": "DomainResource.dom-4",
+  "not": {
+    "oneOf": [
+      {
+        "required": [
+          "versionId"
+        ]
+      },
+      {
+        "required": [
+          "lastUpdated"
+        ]
+      }
+    ]
+  }
+}

@@ -9,7 +9,7 @@ describe('resources.Immunization', function () {
     beforeEach(function () {
         data = {
             resourceType: 'Immunization',
-           identifier: [{
+            identifier: [{
                 value: 'Imm123'
             }],
             status: 'completed',
@@ -25,7 +25,7 @@ describe('resources.Immunization', function () {
             performer: {
                 reference: 'Practitioner/456'
             },
-            requestor: {
+            requester: {
                 reference: 'Practitioner/123'
             },
             encounter: {
@@ -55,9 +55,9 @@ describe('resources.Immunization', function () {
                 }
             ],
             explanation: {
-                reason: {
+                reason: [{
                     text: 'As necessary'
-                }
+                }]
             },
             reaction: [
                 {

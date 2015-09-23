@@ -60,9 +60,11 @@ describe('resources.Condition', function () {
             },
             evidence: [
                 {
-                    detail: {
-                        display: 'MRI scan'
-                    }
+                    detail: [
+                        {
+                            display: 'MRI scan'
+                        }
+                    ]
                 }
             ],
             bodySite: [
@@ -132,7 +134,7 @@ describe('resources.Condition', function () {
         expect(result.valid).to.be.false;
     });
 
-    it('rejects a Condition.stage without summary or assessment', function () {
+    it('rejects a Condition.stage without summary or assessment [con-1]', function () {
         delete data.stage.summary;
 
         var result = fhir.validator.validate(data, schema);
@@ -140,7 +142,7 @@ describe('resources.Condition', function () {
         expect(result.valid).to.be.false;
     });
 
-    it('rejects a Condition.evidence without code or details', function () {
+    it('rejects a Condition.evidence without code or details [con-2]', function () {
         delete data.evidence[0].detail;
 
         var result = fhir.validator.validate(data, schema);

@@ -1,0 +1,1 @@
+{"title":"Coding","allOf":[{"$ref":"Element"}],"properties":{"system":{"$ref":"uri"},"version":{"$ref":"string"},"code":{"$ref":"code"},"display":{"$ref":"string"},"primary":{"$ref":"boolean"}},"$schema":"http://json-schema.org/draft-04/schema#","id":"http://cim.endeavourhealth.org/schema/fhir/dstu2/Coding"}

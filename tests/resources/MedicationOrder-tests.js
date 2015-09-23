@@ -30,7 +30,7 @@ describe('resources.MedicationOrder', function () {
             reasonReference: {
                 display: 'For horrible condition'
             },
-            notes: 'The quick brown fox etc',
+            note: 'The quick brown fox etc',
             medicationReference: {
                 display: 'Aspirin'
             },
@@ -65,7 +65,7 @@ describe('resources.MedicationOrder', function () {
                             value: 2
                         }
                     },
-                    maxDoseForPeriod: {
+                    maxDosePerPeriod: {
                         numerator: {
                             value: 1
                         },

@@ -1,0 +1,13 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "id": "http://cim.endeavourhealth.org/schema/fhir/dstu2/Condition.evidence.con-2",
+  "title": "Condition.evidence.con-2",
+  "oneOf": [
+    {
+      "required": ["code"]
+    },
+    {
+      "required": ["detail"]
+    }
+  ]
+}
