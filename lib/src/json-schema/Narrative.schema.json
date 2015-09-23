@@ -1,0 +1,25 @@
+{
+  "title": "Narrative",
+  "allOf": [
+    {
+      "$ref": "Element"
+    }
+  ],
+  "properties": {
+    "status": {
+      "allOf": [
+        {
+          "$ref": "code"
+        },
+        {
+          "$ref": "narrative-status"
+        }
+      ]
+    },
+    "div": {
+      "$ref": "string"
+    }
+  },
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "id": "http://cim.endeavourhealth.org/schema/fhir/dstu2/Narrative"
+}

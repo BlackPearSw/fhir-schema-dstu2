@@ -1,0 +1,1 @@
+{"id":"http://cim.endeavourhealth.org/schema/fhir/dstu2/Condition.evidence","title":"Condition.evidence","type":"object","allOf":[{"$ref":"BackboneElement"},{"$ref":"Condition.evidence.con-2"}],"required":[],"properties":{"code":{"$ref":"CodeableConcept"},"detail":{"type":"array","items":{"$ref":"Reference"}}},"$schema":"http://json-schema.org/draft-04/schema#"}

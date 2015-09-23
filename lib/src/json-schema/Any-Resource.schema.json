@@ -1,0 +1,20 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "id": "http://cim.endeavourhealth.org/schema/fhir/dstu2/Any-Resource",
+  "title": "Any-Resource",
+  "oneOf": [
+    {"$ref": "AllergyIntolerance"},
+    {"$ref": "Appointment"},
+    {"$ref": "Bundle"},
+    {"$ref": "Condition"},
+    {"$ref": "Immunization"},
+    {"$ref": "MedicationOrder"},
+    {"$ref": "OperationOutcome"},
+    {"$ref": "Organization"},
+    {"$ref": "Patient"},
+    {"$ref": "Person"},
+    {"$ref": "Practitioner"},
+    {"$ref": "Slot"},
+    {"$ref": "Schedule"}
+  ]
+}

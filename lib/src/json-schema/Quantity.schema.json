@@ -1,0 +1,34 @@
+{
+  "title": "Quantity",
+  "allOf": [
+    {
+      "$ref": "Element"
+    }
+  ],
+  "properties": {
+    "value": {
+      "$ref": "decimal"
+    },
+    "comparator": {
+      "allOf": [
+        {
+          "$ref": "code"
+        },
+        {
+          "$ref": "quantity-comparator"
+        }
+      ]
+    },
+    "unit": {
+      "$ref": "string"
+    },
+    "system": {
+      "$ref": "uri"
+    },
+    "code": {
+      "$ref": "code"
+    }
+  },
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "id": "http://cim.endeavourhealth.org/schema/fhir/dstu2/Quantity"
+}

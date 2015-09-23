@@ -1,0 +1,1 @@
+{"title":"Meta","allOf":[{"$ref":"Element"}],"properties":{"versionId":{"$ref":"id"},"lastUpdated":{"$ref":"instant"},"profile":{"type":"array","items":{"$ref":"uri"}}},"$schema":"http://json-schema.org/draft-04/schema#","id":"http://cim.endeavourhealth.org/schema/fhir/dstu2/Meta"}

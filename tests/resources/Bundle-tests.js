@@ -125,6 +125,9 @@ describe('resources.Bundle', function () {
                 expect(result.valid).to.be.false;
             });
 
+            /*
+            TODO: No formal constraints on entry.search.score
+
             it('rejects a Bundle with entry.search.score > 1', function () {
                 data.entry[0].search.score = 1.01;
 
@@ -156,6 +159,7 @@ describe('resources.Bundle', function () {
 
                 expect(result.valid).to.be.false;
             });
+            */
         });
 
         describe('request', function(){

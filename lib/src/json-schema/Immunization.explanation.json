@@ -1,0 +1,1 @@
+{"id":"http://cim.endeavourhealth.org/schema/fhir/dstu2/Immunization.explanation","title":"Immunization.explanation","type":"object","allOf":[{"$ref":"BackboneElement"}],"required":[],"properties":{"reason":{"type":"array","items":{"$ref":"CodeableConcept"}},"reasonNotGiven":{"type":"array","items":{"$ref":"CodeableConcept"}}},"$schema":"http://json-schema.org/draft-04/schema#"}

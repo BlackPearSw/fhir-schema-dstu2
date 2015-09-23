@@ -297,6 +297,12 @@ describe('utils.factory', function () {
                                 ]
                             },
                             {
+                                path: 'Foo.backbone.backbone',
+                                min: 1,
+                                max: '1',
+                                nameReference: 'backbone'
+                            },
+                            {
                                 path: 'Foo.backboneRequired',
                                 min: 1
                             },
@@ -322,7 +328,7 @@ describe('utils.factory', function () {
                 before(function () {
                     resource = makeStructureDefinition();
                     schema = factory.makeJsonSchema(resource);
-                    console.log(schema);
+                    //console.log(schema);
                 });
 
                 var visit = function (schema, fn) {
@@ -337,15 +343,17 @@ describe('utils.factory', function () {
                     schema.should.be.an('object');
                 });
 
-                it('schema has a child for each DomainResource, BackboneElement', function () {
-                    Object.keys(schema).length.should.equal(5);
+                it('schema has a child for each DomainResource, BackboneElement, Constraint', function () {
+                    Object.keys(schema).length.should.equal(7);
                 });
 
                 it('schema has a property for each element', function () {
-                    var expected = [18, 1, 0, 0, 0];
+                    var expected = [18, 0, 2, 0, 0, 0, 0];
 
                     visit(schema, function (child, i) {
-                        Object.keys(child.properties).length.should.equal(expected[i]);
+                        if (child.properties) {
+                            Object.keys(child.properties).length.should.equal(expected[i]);
+                        }
                     });
                 });
 
@@ -531,16 +539,6 @@ describe('utils.factory', function () {
 
                 beforeEach(function () {
                     resource = makeStructureDefinition();
-                });
-
-                it('when abstract', function () {
-                    resource.abstract = true;
-
-                    function fn() {
-                        factory.makeJsonSchema(resource);
-                    }
-
-                    expect(fn).to.throw(Error);
                 });
 
                 it('when missing differential', function () {
