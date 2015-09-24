@@ -116,6 +116,18 @@ describe('resources.Bundle', function () {
     });
 
     describe('entry', function () {
+        it('rejects a Bundle with invalid entry.resource', function () {
+            data.entry.push({ fullUrl: 'http://health.org/fhir/Invalid/123',
+                resource: {
+                resourceType: 'Invalid'
+            }});
+
+            var result = fhir.validator.validate(data, schema);
+
+            expect(result.valid).to.be.false;
+        });
+
+
         describe('search', function () {
             it('rejects a Bundle with invalid entry.search.mode', function () {
                 data.entry[0].search.mode = 'foo';

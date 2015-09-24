@@ -50,6 +50,16 @@ describe('utils.factory', function () {
                         ]
                     },
                     {
+                        path: 'Foo.resourceProperty',
+                        min: 0,
+                        max: '1',
+                        type: [
+                            {
+                                code: 'Resource'
+                            }
+                        ]
+                    },
+                    {
                         path: 'Foo.bar',
                         constraint: [
                             {
@@ -278,6 +288,16 @@ describe('utils.factory', function () {
                                 }
                             },
                             {
+                                path: 'Foo.resourceProperty',
+                                min: 0,
+                                max: '1',
+                                type: [
+                                    {
+                                        code: 'Resource'
+                                    }
+                                ]
+                            },
+                            {
                                 path: 'Foo.backbone',
                                 constraint: [
                                     {
@@ -348,7 +368,7 @@ describe('utils.factory', function () {
                 });
 
                 it('schema has a property for each element', function () {
-                    var expected = [18, 0, 2, 0, 0, 0, 0];
+                    var expected = [19, 0, 2, 0, 0, 0, 0];
 
                     visit(schema, function (child, i) {
                         if (child.properties) {
@@ -365,6 +385,11 @@ describe('utils.factory', function () {
                 it('schema has a CodeableConcept property', function () {
                     should.exist(schema['Foo'].properties['propertyCodeableConcept']);
                     schema['Foo'].properties['propertyCodeableConcept'].should.deep.equal({$ref: 'CodeableConcept'});
+                });
+
+                it('schema has a Resource property', function () {
+                    should.exist(schema['Foo'].properties['resourceProperty']);
+                    schema['Foo'].properties['resourceProperty'].should.deep.equal({$ref: 'Any-Resource'});
                 });
 
                 it('schema has a property array', function () {
