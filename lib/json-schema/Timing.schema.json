@@ -1,1 +1,24 @@
-{"title":"Timing","allOf":[{"$ref":"Element"}],"properties":{"event":{"type":"array","items":{"$ref":"dateTime"}},"repeat":{"$ref":"Timing.repeat"},"code":{"$ref":"CodeableConcept"}},"$schema":"http://json-schema.org/draft-04/schema#","id":"http://cim.endeavourhealth.org/schema/fhir/dstu2/Timing"}
+{
+  "title": "Timing",
+  "allOf": [
+    {
+      "$ref": "Element"
+    }
+  ],
+  "properties": {
+    "event": {
+      "type": "array",
+      "items": {
+        "$ref": "dateTime"
+      }
+    },
+    "repeat": {
+      "$ref": "Timing.repeat"
+    },
+    "code": {
+      "$ref": "CodeableConcept"
+    }
+  },
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "id": "http://cim.endeavourhealth.org/schema/fhir/dstu2/Timing"
+}
